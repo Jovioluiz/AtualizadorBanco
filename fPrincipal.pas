@@ -109,6 +109,9 @@ end;
 
 procedure TfrmPrincipal.btnExecutarSqlClick(Sender: TObject);
 begin
+  if ManipuladorXML.Dados.cdsExecutar.IsEmpty then
+    Exit;
+
   if Manipulador.GravarComandos(ManipuladorXML.Dados.cdsExecutar, FConexao.conexao) then
     ManipuladorXML.Dados.cdsExecutar.EmptyDataSet;
 end;

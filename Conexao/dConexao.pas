@@ -14,6 +14,7 @@ type
     conexao: TFDConnection;
     FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     drive: TFDPhysPgDriverLink;
+    transacao: TFDTransaction;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

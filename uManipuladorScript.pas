@@ -82,6 +82,7 @@ begin
 
   query := TFDQuery.Create(nil);
   query.Connection := Conexao;
+  Conexao.StartTransaction;
 
   try
     try
