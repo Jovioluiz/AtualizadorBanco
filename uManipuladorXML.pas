@@ -37,7 +37,6 @@ end;
 
 destructor TManipuladorXML.Destroy;
 begin
-//  FDocumentoXML.Free;
   FDados.Free;
   inherited;
 end;

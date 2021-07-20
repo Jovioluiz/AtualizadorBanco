@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  BorderStyle = bsToolWindow
+  BorderStyle = bsDialog
   Caption = 'Atualizador Script'
   ClientHeight = 800
   ClientWidth = 1230
@@ -24,28 +24,26 @@ object frmPrincipal: TfrmPrincipal
     Top = 0
     Width = 1230
     Height = 800
-    ActivePage = tsRodar
+    ActivePage = tsAdd
     Align = alClient
     TabOrder = 0
     object tsAdd: TTabSheet
       Caption = 'Adicionar SQL'
-      ExplicitLeft = 8
-      ExplicitTop = 28
       DesignSize = (
         1222
         772)
       object memoSql: TMemo
         AlignWithMargins = True
         Left = 3
-        Top = 192
+        Top = 144
         Width = 1216
-        Height = 253
+        Height = 289
         Anchors = [akLeft, akTop, akRight]
         TabOrder = 0
       end
       object edtArquivo: TLabeledEdit
         Left = 3
-        Top = 72
+        Top = 32
         Width = 417
         Height = 21
         EditLabel.Width = 37
@@ -56,9 +54,9 @@ object frmPrincipal: TfrmPrincipal
       object dbGrid: TDBGrid
         AlignWithMargins = True
         Left = 3
-        Top = 492
+        Top = 470
         Width = 1217
-        Height = 242
+        Height = 264
         Anchors = [akLeft, akRight, akBottom]
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         TabOrder = 2
@@ -71,7 +69,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object btnSelecionarArquivo: TButton
         Left = 426
-        Top = 70
+        Top = 30
         Width = 34
         Height = 25
         Caption = '...'
@@ -92,7 +90,7 @@ object frmPrincipal: TfrmPrincipal
       object btnConfirma: TButton
         AlignWithMargins = True
         Left = 1144
-        Top = 457
+        Top = 439
         Width = 75
         Height = 25
         Anchors = [akRight]
@@ -102,7 +100,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object edtVersao: TLabeledEdit
         Left = 3
-        Top = 157
+        Top = 110
         Width = 70
         Height = 21
         EditLabel.Width = 33
@@ -112,7 +110,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object rbDDL: TRadioButton
         Left = 3
-        Top = 112
+        Top = 65
         Width = 46
         Height = 17
         Caption = 'DDL'
@@ -120,11 +118,19 @@ object frmPrincipal: TfrmPrincipal
       end
       object rbDML: TRadioButton
         Left = 64
-        Top = 112
+        Top = 65
         Width = 49
         Height = 17
         Caption = 'DML'
         TabOrder = 8
+      end
+      object Button1: TButton
+        Left = 920
+        Top = 30
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
+        TabOrder = 9
       end
     end
     object tsRodar: TTabSheet
@@ -162,8 +168,9 @@ object frmPrincipal: TfrmPrincipal
         Left = 16
         Top = 189
         Width = 1193
-        Height = 252
+        Height = 532
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+        PopupMenu = popMenu
         TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -174,7 +181,7 @@ object frmPrincipal: TfrmPrincipal
         OnDrawColumnCell = dbGridExecDrawColumnCell
       end
       object btnExecutarSql: TButton
-        Left = 1125
+        Left = 1115
         Top = 735
         Width = 94
         Height = 34
@@ -254,14 +261,16 @@ object frmPrincipal: TfrmPrincipal
     end
   end
   object dialog: TOpenDialog
-    Left = 608
+    Left = 1192
+    Top = 16
   end
   object OpenTextFileDialog: TOpenTextFileDialog
-    Left = 468
+    Left = 1188
+    Top = 72
   end
   object popMenu: TPopupMenu
-    Left = 1100
-    Top = 600
+    Left = 1188
+    Top = 128
     object Excluir1: TMenuItem
       Caption = 'Excluir'
       OnClick = Excluir1Click

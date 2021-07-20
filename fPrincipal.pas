@@ -37,6 +37,7 @@ type
     rbDML: TRadioButton;
     popMenu: TPopupMenu;
     Excluir1: TMenuItem;
+    Button1: TButton;
     procedure btnGravarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -85,7 +86,6 @@ begin
 
   if OpenTextFileDialog.Execute then
     edtArquivoXml.Text := OpenTextFileDialog.FileName;
-//  btnConectar.Enabled := True;
 end;
 
 procedure TfrmPrincipal.btnConectarClick(Sender: TObject);
