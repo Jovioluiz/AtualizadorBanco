@@ -10,14 +10,14 @@ object dm: Tdm
   object cds: TClientDataSet
     PersistDataPacket.Data = {
       360000009619E0BD010000001800000001000000000003000000360007636F6D
-      616E646F020049000000010005574944544802000200E8030000}
+      616E646F02004900000001000557494454480200020010270000}
     Active = True
     Aggregates = <>
     FieldDefs = <
       item
         Name = 'comando'
         DataType = ftString
-        Size = 1000
+        Size = 10000
       end>
     IndexDefs = <>
     Params = <>

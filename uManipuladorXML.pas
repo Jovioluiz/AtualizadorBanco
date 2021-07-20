@@ -14,7 +14,7 @@ type TManipuladorXML = class
 
   public
 
-  procedure GravaXML(dataSet: TClientDataset; Caminho, Versao: string);
+  procedure GravaXML(dataSet: TClientDataset; Caminho, Versao, TipoVersao: string);
   procedure ListarComandosXML(Xml: string);
   constructor Create(componente: TComponent);
   destructor Destroy; override;
@@ -42,7 +42,7 @@ begin
   inherited;
 end;
 
-procedure TManipuladorXML.GravaXML(dataSet: TClientDataset; Caminho, Versao: string);
+procedure TManipuladorXML.GravaXML(dataSet: TClientDataset; Caminho, Versao, TipoVersao: string);
 var
   nodeAtualizador,
   nodeAtualizacao,
@@ -70,7 +70,7 @@ begin
       dataSet.Next;
     end;
 
-    FDocumentoXML.SaveToFile(Caminho + 'DDL_' + Versao + '.xml');
+    FDocumentoXML.SaveToFile(Caminho + TipoVersao + 'v_' + Versao + '.xml');
   finally
     FDocumentoXML.Free;
   end;

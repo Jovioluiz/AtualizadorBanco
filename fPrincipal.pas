@@ -6,7 +6,7 @@ uses
   Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Xml.XMLDoc,
   Vcl.StdCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids, uManipuladorScript, Vcl.ExtCtrls,
-  Vcl.ComCtrls, Vcl.ExtDlgs, uManipuladorXML, dConexao, System.Types;
+  Vcl.ComCtrls, Vcl.ExtDlgs, uManipuladorXML, dConexao, System.Types, Vcl.Menus;
 
 type
   TfrmPrincipal = class(TForm)
@@ -33,6 +33,10 @@ type
     lblBanco: TLabel;
     lblservidor: TLabel;
     lblPorta: TLabel;
+    rbDDL: TRadioButton;
+    rbDML: TRadioButton;
+    popMenu: TPopupMenu;
+    Excluir1: TMenuItem;
     procedure btnGravarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -47,6 +51,7 @@ type
     procedure dbGridExecDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure dbGridExecCellClick(Column: TColumn);
+    procedure Excluir1Click(Sender: TObject);
   private
     FManipulador: TManipuladorScript;
     FEdicao: Boolean;
@@ -123,7 +128,7 @@ begin
     edtArquivo.SetFocus;
     raise Exception.Create('Selecione um arquivo');
   end;
-  ManipuladorXML.GravaXML(ManipuladorXML.Dados.cds, edtArquivo.Text, edtVersao.Text);
+  ManipuladorXML.GravaXML(ManipuladorXML.Dados.cds, edtArquivo.Text, edtVersao.Text, IfThen(rbDDL.Checked, 'DDL', 'DML'));
   ManipuladorXML.Dados.cds.EmptyDataSet;
 end;
 
@@ -184,6 +189,11 @@ begin
   end
   else
     dbGridExec.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TfrmPrincipal.Excluir1Click(Sender: TObject);
+begin
+  FManipuladorXML.Dados.cds.Delete;
 end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);

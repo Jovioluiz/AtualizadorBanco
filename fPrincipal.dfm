@@ -29,15 +29,17 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 0
     object tsAdd: TTabSheet
       Caption = 'Adicionar SQL'
+      ExplicitLeft = 8
+      ExplicitTop = 28
       DesignSize = (
         1222
         772)
       object memoSql: TMemo
         AlignWithMargins = True
         Left = 3
-        Top = 149
+        Top = 192
         Width = 1216
-        Height = 296
+        Height = 253
         Anchors = [akLeft, akTop, akRight]
         TabOrder = 0
       end
@@ -100,13 +102,29 @@ object frmPrincipal: TfrmPrincipal
       end
       object edtVersao: TLabeledEdit
         Left = 3
-        Top = 112
+        Top = 157
         Width = 70
         Height = 21
         EditLabel.Width = 33
         EditLabel.Height = 13
         EditLabel.Caption = 'Vers'#227'o'
         TabOrder = 6
+      end
+      object rbDDL: TRadioButton
+        Left = 3
+        Top = 112
+        Width = 46
+        Height = 17
+        Caption = 'DDL'
+        TabOrder = 7
+      end
+      object rbDML: TRadioButton
+        Left = 64
+        Top = 112
+        Width = 49
+        Height = 17
+        Caption = 'DML'
+        TabOrder = 8
       end
     end
     object tsRodar: TTabSheet
@@ -240,5 +258,13 @@ object frmPrincipal: TfrmPrincipal
   end
   object OpenTextFileDialog: TOpenTextFileDialog
     Left = 468
+  end
+  object popMenu: TPopupMenu
+    Left = 1100
+    Top = 600
+    object Excluir1: TMenuItem
+      Caption = 'Excluir'
+      OnClick = Excluir1Click
+    end
   end
 end
