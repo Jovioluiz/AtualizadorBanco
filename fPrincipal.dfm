@@ -24,7 +24,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 0
     Width = 1230
     Height = 800
-    ActivePage = tsAdd
+    ActivePage = tsRodar
     Align = alClient
     TabOrder = 0
     object tsAdd: TTabSheet

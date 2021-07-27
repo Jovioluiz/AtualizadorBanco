@@ -94,7 +94,7 @@ begin
     for i := 0 to Pred(xmlNodeAtualizacao.ChildNodes.Count) do
     begin
       Dados.cdsExecutar.Append;
-      Dados.cdsExecutar.FieldByName('comando').AsString := StringReplace(xmlNodeAtualizacao.ChildNodes[i].Attributes['comando_sql'], ' ', ' ', [rfReplaceAll]);
+      Dados.cdsExecutar.FieldByName('comando').AsString := xmlNodeAtualizacao.ChildNodes[i].Attributes['comando_sql'];
       Dados.cdsExecutar.Post;
     end;
   finally
